@@ -1,0 +1,12 @@
+#!/bin/sh
+
+BATSTATUS=$(cat /sys/class/power_supply/BAT*/status)
+BATCAPACITY=$(cat /sys/class/power_supply/BAT*/capacity)
+LOWCOLOR="#[fg=colour1]"
+
+if [ "$BATCAPACITY" -le 25 ] && [ "$BATSTATUS" = "Discharging" ]
+then
+	echo "${LOWCOLOR}${BATCAPACITY}%"
+else
+	echo "${BATCAPACITY}%"
+fi

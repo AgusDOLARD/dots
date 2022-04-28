@@ -1,0 +1,15 @@
+#!/bin/sh
+# Toggles a problem on and off
+
+killandnotify () {
+    killall "$1" && notify-send "$1" "$2"
+}
+
+ID=$(pgrep "$1")
+
+if [ -z "$ID" ]; then
+  "$1" "$2"
+else
+  killandnotify "$1" "$1 killed"
+fi
+

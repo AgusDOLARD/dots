@@ -1,0 +1,8 @@
+xrdb ${DOTS}/wm/.config/X11/.Xresources &
+xsetroot -solid \#151515 &
+${SCRIPT_DIR}/touchpadsetup &
+${SCRIPT_DIR}/keyboardsetup &
+dunst &
+clipmenud &
+sxhkd -c ${DOTS}/wm/.config/sxhkd/sxhkdrc &
+exec sowm

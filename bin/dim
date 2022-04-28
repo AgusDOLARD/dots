@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ -z "$1" ];
+then docker images
+else docker images -a | grep "$1" | awk '{print $3}' | xargs docker rmi -f 
+fi

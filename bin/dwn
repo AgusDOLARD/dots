@@ -1,0 +1,8 @@
+#!/bin/sh
+
+url="$1"
+name="${2:-${url##*/}}"
+
+[ -z "$url" ] && echo "no input" && exit 1
+
+curl -s "$url" > "$name" && echo "$name" || echo "failed"

@@ -1,0 +1,17 @@
+alias byeOrphans='sudo pacman -Rns $(pacman -Qtdq)'
+alias ccd='cd "${DOTS}"'
+alias cya="rm -rf"
+alias dps="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Size}}\t{{.Status}}'"
+alias gss="git status"
+alias l="ls -alh"
+alias ll='ls -a'
+alias ls='ls --color=auto'
+alias sdf='setxkbmap us -option caps:backspace && xset r 66'
+alias src='source $XDG_CONFIG_HOME/zsh/.zshrc && source /etc/zsh/zshenv'
+alias sudo='sudo '
+alias vim='$EDITOR'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias yolo='gp $(curl -s http://whatthecommit.com/index.txt)'
+alias p="sudo pacman"
+
+md(){ mkdir -p -- "$@" && cd -- "$@" }

@@ -1,0 +1,63 @@
+########################################################################
+#								KEYBINDS							   #
+########################################################################
+
+# Screen brightness
+XF86MonBrightness{Down,Up}
+	light {-U,-A} 10 && $SCRIPT_DIR/brightnoti
+
+# Screen brightness
+super + shift + control + {j,k}
+	light {-U,-A} 10 && $SCRIPT_DIR/brightnoti
+
+# Toggle volume sound
+super + shift + alt + space
+	pamixer  --toggle-mute | $SCRIPT_DIR/volumenoti
+
+# Volume controler
+XF86Audio{Lower,Raise}Volume
+	pamixer -{d,i} 5 | $SCRIPT_DIR/volumenoti
+
+# Volume controler
+super + shift + alt + {j,k}
+	pamixer -{d,i} 5 | $SCRIPT_DIR/volumenoti
+
+XF86AudioMute
+	pamixer -t | $SCRIPT_DIR/volumenoti
+
+# Disable touchpad
+XF86TouchpadToggle
+	$SCRIPT_DIR/touchpadtoggle
+
+Print
+	$SCRIPT_DIR/dmenuscrot
+
+super + {shift,_} + Return
+	$TERMINAL {_,-e $SCRIPT_DIR/tmuxsession}
+
+super + d
+	dmenu_run -F -bw 3 -c -l 15 -h 30
+
+# Clipboard history
+super + c
+	clipmenu -F -bw 3 -h 30
+
+# Shutdown script
+control + shift + Escape
+	$SCRIPT_DIR/shutdown-script
+
+# Toggle dunst
+super + shift + o ; d
+	$SCRIPT_DIR/toggleprogram "dunst"
+
+# Close single dunst notification
+control + space
+	dunstctl close
+
+# See previous closed dunst notification
+control shift + space
+	dunstctl history-pop
+
+# Reload SXHKD
+super + Escape
+	pkill -USR1 -x sxhkd && notify-send "sxhkd" "Config reloaded"

@@ -1,0 +1,158 @@
+#!/bin/sh
+#
+# ash, a shell script to download from the aur
+
+# Checking if $AURDIR is set to a dir that exists, and printing an error if not
+AURDIR=${XDG_DATA_HOME:-$HOME/.local/share}/ash
+[ ! -d "$AURDIR" ] && mkdir -p "$AURDIR"
+
+# Styling
+bold="\033[1m"
+normal="\033[0m"
+cyan="\033[36m"
+light_red="\033[91m"
+light_green="\033[92m"
+
+# Functions
+usage() {
+printf "%bUSAGE:%b %bash%b %b[OPTION...]%b package1 package2 package3...\n
+%bOPTIONS:%b
+help		Brings Up This Menu
+install		Installs a package from the aur
+remove		Uninstalls a package and removes its directory
+update 		Cleanbuilds a package if not up to date
+		Or it will will recursively update all packages if none is given
+search		Searches the aur
+searchpkg	Gives aur info for a specific package
+clean		Removes the directory of a package
+cleanbuild	Cleanbuilds a package\n" "$bold" "$normal" "$cyan" "$normal" "$bold" "$normal" "$bold" "$normal"
+}
+
+# The command used to make a package in every function, with error catching if makepkg fails or the user cancels
+# It will remove the directory of the package on failure or exit
+makepkg_command() { makepkg -sricC || return 1;}
+
+# Error output if cd fails
+# used as *cd dir || cd_error*
+cd_error() { printf "%b%bERROR:%b %bcd%b failed\n" "$light_red" "$bold" "$normal" "$bold" "$normal" && return 1;}
+
+# Checks if arg given equals arg inputted, and then checks if continue if set.
+# If continue not set then it will set continue and return 0.
+# used as arg_check "$arg" "skip_this_argument" && [ "$?" = "0" ] && return 0
+# Basically just checks used to make sure a function doesn't use itself as an argument
+# But still allows you to pass in itself as an argument
+# so search search works but doesn't search "search" twice
+arg_check() { [ "$1" = "$2" ] && [ -z "$continue" ] && continue=1 && return 0 ;}
+
+# Checks weather input given is empty
+# input_check "$var"
+input_check() { [ ! "$1" ] && printf "%b%bERROR:%b no package inputted\n" "$light_red" "$bold" "$normal" && return 1;}
+
+install() {
+	if arg_check "$arg" "install" || arg_check "$arg" "i" ;then return 0;fi
+	[ -z "$(curl --silent "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=$arg" | jq -r -c '.results[] | .Name')" ] && printf "%b%bERROR:%b package '%s' not found\n" "$light_red" "$bold" "$normal" "$arg" && return 1
+	if pacman -Qmq "$arg" > /dev/null 2>&1;then printf "%b%bERROR:%b package '%s' already installed\n" "$light_red" "$bold" "$normal" "$arg" && return 1;fi
+	git clone https://aur.archlinux.org/"$arg".git "$AURDIR"/"$arg"
+	cd "$AURDIR"/"$arg" || cd_error
+	makepkg_command
+}
+
+remove() {
+	if arg_check "$arg" "remove" || arg_check "$arg" "r" ;then return 0;fi
+	if ! pacman -Qmq "$arg" > /dev/null 2>&1;then printf "%b%bERROR:%b package not installed\n" "$light_red" "$bold" "$normal" && return 1;fi
+	cd "$AURDIR" || cd_error
+	sudo pacman -Rnus "$1"
+	sudo rm -r "$1"
+}
+
+update() {
+	if [ -n "$2" ]; then
+		printf "Warning, this will rebuild all of your out of date packages. Are you sure you want to continue? Y/n " && read -r reply
+        case $reply in [Nn]*) return 0;; esac
+		for pkgdir in "$AURDIR"/*; do
+			cd "$pkgdir" || cd_error && [ "$?" = "1" ] && return 1
+			if ! git pull -q;then makepkg_command;fi
+			if ! pacman -Qmq "${pkgdir#"$AURDIR"/}" > /dev/null 2>&1;then
+				cd "$AURDIR" || cd_error && [ "$?" = "1" ] && return 1
+				sudo rm -r "$pkgdir"
+			else
+				printf "%s: %b%bUp To Date%b\n" "${pkgdir#"$AURDIR"/}" "$light_green" "$bold" "$normal"
+			fi
+		done
+	else
+		if arg_check "$arg" "update" || arg_check "$arg" "u";then return 0;fi
+		if ! pacman -Qmq "$arg" > /dev/null 2>&1;then printf "%b%bERROR:%b package not installed\n" "$light_red" "$bold" "$normal" && return 1;fi
+		cd "$AURDIR"/"$arg" || cd_error
+		if git pull -q;then printf "%s: %b%bUp To Date%b\n" "$arg" "$light_green" "$bold" "$normal" && return 0; fi
+		makepkg_command
+	fi
+}
+
+search() {
+	if arg_check "$arg" "search" || arg_check "$arg" "s";then return 0;fi
+	curl --silent "https://aur.archlinux.org/rpc/?v=5&type=search&arg=$1" |  jq -r -c '.results[] | .Name,.Description,.Version'| less | paste -d'\n' /dev/null - - -
+}
+
+searchpkg() {
+	if arg_check "$arg" "searchpkg" || arg_check "$arg" "sp";then return 0;fi
+	curl --silent "https://aur.archlinux.org/rpc/?v=5&type=info&arg[]=$1" |  jq --monochrome-output -r -c '.results[] | .Name,.Description,.Version,.Depends' | tr -d '"[]' | tr , " "
+	echo
+}
+
+clean() {
+	if arg_check "$arg" "clean" || arg_check "$arg" "c";then return 0;fi
+	cd "$AURDIR" || cd_error
+	sudo rm -r "$arg"
+}
+
+cleanbuild() {
+	if arg_check "$arg" "cleanbuild" || arg_check "$arg" "cb" ;then return 0;fi
+	if ! pacman -Qmq "$arg" > /dev/null 2>&1;then printf "%b%bERROR:%b package not installed\n" "$light_red" "$bold" "$normal" && return 1;fi
+	cd "$AURDIR" || cd_error
+	sudo pacman -Rnus "$arg"
+	sudo rm -r "$arg"
+	git clone https://aur.archlinux.org/"$arg".git "$AURDIR"/"$arg"
+	cd "$AURDIR"/"$arg" || cd_error
+	makepkg_command
+}
+
+[ ! "$1" ] && printf "%b%bERROR%b no arguments given\n" "$light_red" "$bold" "$normal"
+
+for arg in "$@"; do case "$1" in
+	help|h)
+		usage
+	;;
+	install|i)
+		input_check "$2"
+		install "$arg"
+	;;
+	remove|r)
+		input_check "$2"
+		remove "$arg"
+	;;
+	update|u)
+		[ ! "$2" ] && update_all=0
+		update "$arg" "$update_all"
+	;;
+	search|s)
+		input_check "$2"
+		search "$arg" 
+	;;
+	searchpkg|sp)
+		input_check "$2"
+		searchpkg "$arg"
+	;;
+	clean|c)
+		input_check "$2"
+		clean "$arg"
+	;;
+	cleanbuild|cb)
+		input_check "$2"
+		cleanbuild "$arg"
+	;;
+	*)
+		printf "%b%bError:%b '%s' not an option\n" "$light_red" "$bold" "$normal" "$arg"
+	;;
+esac; done
+
+cd "$OLDPWD" || cd_error

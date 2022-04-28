@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cmd_list="Cancel Suspend PowerOff Reboot"
+
+case "$(echo "$cmd_list" | sed 's/ /\n/g' | dmenu)" in
+    PowerOff) systemctl poweroff ;;
+    Suspend) systemctl suspend ;;
+    Reboot) systemctl reboot ;;
+    *) ;;
+esac

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+[ -z "$1" ] && read -r file || file="$1"
+chmod +x "$file"
