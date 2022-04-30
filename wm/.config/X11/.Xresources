@@ -46,9 +46,15 @@
 
 XTerm.termName: xterm-256color
 XTerm*metaSendsEscape: true
-XTerm*geometry: 120x30
+XTerm*internalBorder: 90
+XTerm*borderWidth: 0
+XTerm*scrollBar: false
+XTerm*scrollTtyOutput: false
+XTerm*highlightSelection: true
+XTerm*trimSelection: true
+XTerm*selectToClipboard: false
 
-XTerm*faceName: Iosevka
+XTerm*faceName: monospace
 XTerm*faceSize: 16
 XTerm*faceSize1: 8 
 XTerm*faceSize2: 10 
@@ -57,13 +63,6 @@ XTerm*faceSize4: 16
 XTerm*faceSize5: 22 
 XTerm*faceSize6: 24
 
-XTerm*scrollBar: false
-XTerm*scrollTtyOutput: false
-
-XTerm*highlightSelection: true
-XTerm*trimSelection: true
-
-XTerm*selectToClipboard: false
 XTerm*vt100.translations: #override \n \
     Alt <Key>v: insert-selection(CLIPBOARD) \n \
     Alt <Key>V: insert-selection(PRIMARY) \n \
