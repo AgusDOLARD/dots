@@ -1,10 +1,10 @@
 #!/bin/bash
 
-cmd_list="Cancel Suspend PowerOff Reboot"
+cmd_list="cancel suspend poweroff reboot"
 
 case "$(echo "$cmd_list" | sed 's/ /\n/g' | dmenu)" in
-    PowerOff) systemctl poweroff ;;
-    Suspend) systemctl suspend ;;
-    Reboot) systemctl reboot ;;
+    poweroff) systemctl poweroff ;;
+    suspend) systemctl suspend ;;
+    reboot) systemctl reboot ;;
     *) ;;
 esac

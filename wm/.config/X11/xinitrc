@@ -1,7 +1,12 @@
+touchpadID=$(xinput list | grep -i "touchpad" | sed "s/^.*id=\([0-9]*\).*$/\1/" | head -n 1)
+
 xrdb ${DOTS}/wm/.config/X11/.Xresources &
-xsetroot -solid \#151515 &
-${SCRIPT_DIR}/touchpadsetup &
-${SCRIPT_DIR}/keyboardsetup &
+xsetroot -solid "#303030" &
+setxkbmap us -option caps:backspace &
+xset r 66 &
+xinput set-prop "$touchpadID" "libinput Accel Speed" 0.3 &
+xinput set-prop "$touchpadID" "libinput Natural Scrolling Enabled" 1 &
+xinput set-prop "$touchpadID" "libinput Tapping Enabled" 1 &
 dunst &
 clipmenud &
 sxhkd -c ${DOTS}/wm/.config/sxhkd/sxhkdrc &

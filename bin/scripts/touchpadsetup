@@ -1,6 +1,0 @@
-#!/bin/sh
-touchpadID=$(xinput list | grep -i "touchpad" | sed "s/^.*id=\([0-9]*\).*$/\1/" | head -n 1)
-
-xinput set-prop "$touchpadID" "libinput Accel Speed" 0.3 &
-xinput set-prop "$touchpadID" "libinput Natural Scrolling Enabled" 1 &
-xinput set-prop "$touchpadID" "libinput Tapping Enabled" 1 &

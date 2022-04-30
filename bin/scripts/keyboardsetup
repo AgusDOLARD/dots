@@ -1,4 +1,0 @@
-#!/bin/sh
-
-setxkbmap us -option caps:backspace
-xset r 66

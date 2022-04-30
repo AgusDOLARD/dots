@@ -36,7 +36,7 @@ super + {shift,_} + Return
 	$TERMINAL {_,-e $SCRIPT_DIR/tmuxsession}
 
 super + d
-	dmenu_run -F -bw 3 -c -l 15 -h 30
+	dmenu_run
 
 # Clipboard history
 super + c

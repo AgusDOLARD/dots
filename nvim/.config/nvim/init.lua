@@ -1,5 +1,4 @@
 require('user.settings')
-require('user.statusline')
 require('user.autocommands')
 require('user.keymaps')
 require('user.plugins')
