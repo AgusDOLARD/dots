@@ -49,7 +49,7 @@ dmenu.selforeground: base00
 
 XTerm.termName: xterm-256color
 XTerm*metaSendsEscape: true
-XTerm*internalBorder: 90
+XTerm*internalBorder: 50
 XTerm*borderWidth: 0
 XTerm*scrollBar: false
 XTerm*scrollTtyOutput: false
@@ -58,7 +58,7 @@ XTerm*trimSelection: true
 XTerm*selectToClipboard: false
 
 XTerm*faceName: monospace
-XTerm*faceSize: 16
+XTerm*faceSize: 14
 XTerm*faceSize1: 8 
 XTerm*faceSize2: 10 
 XTerm*faceSize3: 12 

@@ -1,5 +1,6 @@
+#!/bin/sh
 alias byeOrphans='sudo pacman -Rns $(pacman -Qtdq)'
-alias ccd='cd "${DOTS}"'
+alias vvd='cd "${DOTS}"'
 alias cya="rm -rf"
 alias dps="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Size}}\t{{.Status}}'"
 alias gss="git status"

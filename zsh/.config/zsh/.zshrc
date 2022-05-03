@@ -19,7 +19,7 @@ for f in $ZSHPLUGS/*; do source "$f"; done
 for f in /usr/share/zsh/plugins/zsh-*; do source $f/*.plugin.zsh; done
 
 # Source fzf
-[ -d "/usr/share/fzf/" ] && source /usr/share/fzf/*.zsh
+[ -d "/usr/share/fzf/" ] && source /usr/share/fzf/{key-bindings,completion}.zsh
 
 # ssh into tmux
 if [[ -n "$PS1"  ]] && [[ -z "$TMUX"  ]] && [[ -n "$SSH_CONNECTION"  ]]; then

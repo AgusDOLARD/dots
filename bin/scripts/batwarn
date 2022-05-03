@@ -1,0 +1,9 @@
+#!/bin/bash
+
+capacity=$(cat /sys/class/power_supply/BAT*/capacity)
+status=$(cat /sys/class/power_supply/BAT*/status)
+
+[ "$capacity" -le 25 ] && [ "$status" = "Discharging" ] && {
+    notify-send -u critical "battery low" "battery level is ${capacity}%!"
+    light -S 20
+}

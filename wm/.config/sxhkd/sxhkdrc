@@ -4,26 +4,26 @@
 
 # Screen brightness
 XF86MonBrightness{Down,Up}
-	light {-U,-A} 10 && $SCRIPT_DIR/brightnoti
+	light {-U,-A} 10 && $SCRIPT_DIR/brinot
 
 # Screen brightness
 super + shift + control + {j,k}
-	light {-U,-A} 10 && $SCRIPT_DIR/brightnoti
+	light {-U,-A} 10 && $SCRIPT_DIR/brinot
 
 # Toggle volume sound
 super + shift + alt + space
-	pamixer  --toggle-mute | $SCRIPT_DIR/volumenoti
+	pamixer  --toggle-mute | $SCRIPT_DIR/volnot
 
 # Volume controler
 XF86Audio{Lower,Raise}Volume
-	pamixer -{d,i} 5 | $SCRIPT_DIR/volumenoti
+	pamixer -{d,i} 5 | $SCRIPT_DIR/volnot
 
 # Volume controler
 super + shift + alt + {j,k}
-	pamixer -{d,i} 5 | $SCRIPT_DIR/volumenoti
+	pamixer -{d,i} 5 | $SCRIPT_DIR/volnot
 
 XF86AudioMute
-	pamixer -t | $SCRIPT_DIR/volumenoti
+	pamixer -t | $SCRIPT_DIR/volnot
 
 # Disable touchpad
 XF86TouchpadToggle
@@ -40,11 +40,11 @@ super + d
 
 # Clipboard history
 super + c
-	clipmenu -F -bw 3 -h 30
+	clipmenu 
 
 # Shutdown script
 control + shift + Escape
-	$SCRIPT_DIR/shutdown-script
+	$SCRIPT_DIR/powermenu
 
 # Toggle dunst
 super + shift + o ; d
