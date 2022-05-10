@@ -1,6 +1,0 @@
-#!/bin/sh
-
-device=$(upower --enumerate | grep headset)
-bat=$(upower --show-info "$device" | grep -oP 'percentage:\s+\K[0-9]+')
-
-[ "$bat" -lt 25 ] && notify-send "headset battery low" "battery level is ${bat}%!"
