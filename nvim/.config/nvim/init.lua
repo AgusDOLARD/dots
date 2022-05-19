@@ -3,6 +3,7 @@ local g = vim.g
 local opt = vim.opt
 
 g.mapleader = " "
+g["AutoPairsShortcutToggle"] = ""
 opt.background = "dark"
 opt.clipboard = "unnamedplus"
 opt.expandtab = true
@@ -93,12 +94,9 @@ require("packer").startup(function(use)
 	use({ "tpope/vim-surround" })
 	use({ "tpope/vim-commentary" })
 	use({ "github/copilot.vim" })
-	use({
-		"mhartington/formatter.nvim",
-		config = {
-			require("user.formatter"),
-		},
-	})
+	use({ "jiangmiao/auto-pairs" })
+	use({ "mhartington/formatter.nvim", config = require("user.formatter") })
+	use({ "chriskempson/base16-vim", config = vim.cmd("colorscheme base16-classic-dark") })
 	use({
 		"rlane/pounce.nvim",
 		config = { vim.api.nvim_set_keymap("n", "f", ":Pounce<CR>", { noremap = true }) },
@@ -106,12 +104,6 @@ require("packer").startup(function(use)
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = { { "hrsh7th/cmp-buffer" }, { "hrsh7th/cmp-path" } },
-		config = { require("user.cmp") },
-	})
-	use({
-		"chriskempson/base16-vim",
-		config = {
-			vim.cmd("colorscheme base16-classic-dark"),
-		},
+		config = require("user.cmp"),
 	})
 end)
