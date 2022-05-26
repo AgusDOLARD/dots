@@ -1,4 +1,4 @@
 #!/bin/sh
 
 path="${1:-$DOTS}"
-find "$path" -type d -name .git -prune -o -type f -print | fzf-tmux -d 30% | xargs -r "$EDITOR"
+find "$path" -type d -name .git -prune -o -type f -print | fzf -m | xargs -r "$EDITOR"
