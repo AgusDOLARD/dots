@@ -13,7 +13,7 @@ zstyle ':completion:*' menu select
 
 # Plugins
 ZIT_MODULES_PATH=$ZDOTDIR/plugins
-[ -d "/usr/share/fzf/" ] && source /usr/share/fzf/{key-bindings,completion}.zsh
+[ -d "/usr/share/fzf/" ] && source /usr/share/fzf/shell/{key-bindings,completion}.zsh
 [ ! -d "${ZIT_MODULES_PATH}/zit" ] && git clone "https://github.com/thiagokokada/zit" "${ZIT_MODULES_PATH}/zit"
     source "${ZIT_MODULES_PATH}/zit/zit.zsh"
 zit-il "https://github.com/rupa/z" "z" "z.sh"

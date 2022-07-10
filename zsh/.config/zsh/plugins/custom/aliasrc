@@ -13,6 +13,6 @@ alias sudo='sudo '
 alias vim='$EDITOR'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias yolo='gp $(curl -s http://whatthecommit.com/index.txt)'
-alias p="sudo pacman"
+alias p="sudo apt"
 
 md(){ mkdir -p -- "$@" && cd -- "$@" }

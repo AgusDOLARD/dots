@@ -95,15 +95,16 @@ require("packer").startup(function(use)
 	use({ "tpope/vim-commentary" })
 	use({ "github/copilot.vim" })
 	use({ "jiangmiao/auto-pairs" })
-	use({ "mhartington/formatter.nvim", config = require("user.formatter") })
-	use({ "chriskempson/base16-vim", config = vim.cmd("colorscheme base16-classic-dark") })
-	use({
-		"rlane/pounce.nvim",
-		config = { vim.api.nvim_set_keymap("n", "f", ":Pounce<CR>", { noremap = true }) },
-	})
+	use({ "mhartington/formatter.nvim"})
+	use({ "chriskempson/base16-vim"})
+	use({"rlane/pounce.nvim"})
 	use({
 		"hrsh7th/nvim-cmp",
-		requires = { { "hrsh7th/cmp-buffer" }, { "hrsh7th/cmp-path" } },
-		config = require("user.cmp"),
+		requires = { { "hrsh7th/cmp-buffer" }, { "hrsh7th/cmp-path" } }
 	})
 end)
+
+require("user.cmp")
+require("user.formatter") 
+vim.api.nvim_set_keymap("n", "f", ":Pounce<CR>", { noremap = true })
+vim.cmd("colorscheme base16-classic-dark") 

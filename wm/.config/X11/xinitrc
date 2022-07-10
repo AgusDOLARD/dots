@@ -9,5 +9,5 @@ xinput set-prop "$touchpadID" "libinput Natural Scrolling Enabled" 1 &
 xinput set-prop "$touchpadID" "libinput Tapping Enabled" 1 &
 dunst &
 clipmenud &
-sxhkd -c ${DOTS}/wm/.config/sxhkd/sxhkdrc &
-exec sowm
+sxhkd &
+exec bspwm
