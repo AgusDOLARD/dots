@@ -24,5 +24,5 @@ zit-il "https://github.com/le0me55i/zsh-extract" "zsh-extract" "extract.plugin.z
 zit-il "https://github.com/zsh-users/zsh-autosuggestions" "zsh-autosuggestions" "zsh-autosuggestions.zsh"
 zit-il "https://github.com/zsh-users/zsh-completions" "zsh-completions" "zsh-completions.plugin.zsh"
 zit-il "https://github.com/zsh-users/zsh-syntax-highlighting" "zsh-syntax-highlighting" "zsh-syntax-highlighting.plugin.zsh"
-zit-il "https://github.com/AgusDOLARD/aursh" "aursh" "aursh.plugin.zsh"
+zit-il "https://github.com/AgusDOLARD/aursh#main" "aursh" "aursh.plugin.zsh"
 for p in "$ZIT_MODULES_PATH"/custom/*; do zit-lo "custom" "$(basename $p)"; done

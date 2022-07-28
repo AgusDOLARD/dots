@@ -53,7 +53,7 @@ Print
 	$SCRIPT_DIR/dmenuscrot
 
 super + {_,shift} + Return
-	$TERMINAL {_,-e $SCRIPT_DIR/tmuxsession}
+	$TERMINAL {_,-e $SCRIPT_DIR/session}
 
 super + d
 	dmenu_run

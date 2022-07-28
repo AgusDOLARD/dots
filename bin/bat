@@ -3,10 +3,10 @@
 bat=$(find /sys/class/power_supply/* | tail -n1)
 read -r capacity <"$bat/capacity"
 read -r status <"$bat/status"
-lowcolor="#[fg=colour1]"
+lowcolor="\033[91m"
 
 if [ "$capacity" -le 25 ] && [ "$status" = "Discharging" ]; then
-	echo "${lowcolor}${capacity}%"
+	printf "%b%s%%\n" "$lowcolor" "$capacity"
 else
-	echo "${capacity}%"
+	printf "%s%%\n" "$capacity"
 fi
