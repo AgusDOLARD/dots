@@ -49,7 +49,6 @@ export PAGER="nvim +Man!"
 export GIT_PAGER="less"
 export TERM="xterm-256color"
 
-export DISPLAY=:0
 export SCRIPT_DIR="$DOTS/bin/scripts"
 
 # NNN env

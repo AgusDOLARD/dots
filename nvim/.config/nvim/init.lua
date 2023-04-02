@@ -62,7 +62,8 @@ map("c", "<M-k>", "<Up>", { noremap = true })
 map("i", "jj", "<Esc>", default_opts)
 
 map("n", "<BS>", ":nohlsearch<CR>", default_opts)
-map("n", "<M-p>", ":find ", { noremap = true })
+map("n", "<M-p>", ":Telescope find_files <CR> ", { noremap = true })
+map("n", "<M-P>", ":Telescope git_files <CR> ", { noremap = true })
 map("n", "<S-j>", ":bp<CR>", default_opts)
 map("n", "<S-k>", ":bn<CR>", default_opts)
 map("n", "<S-u>", "<C-r>", default_opts)
@@ -70,18 +71,12 @@ map("n", "<leader>e", ":e $MYVIMRC<CR>", default_opts)
 map("n", "<leader>q", ":lua close_buffer()<CR>", default_opts)
 map("n", "<leader>s", ":w<CR>", default_opts)
 map("n", "<leader>w", ":so %<CR>", { noremap = true })
-map("n", "S", ":%s///g<Left><Left>", { noremap = true })
+map("n", "S", ":%s//g<Left><Left>", { noremap = true })
 
-map("v", "'", "<esc>`>a'<esc>`<i'<esc>", default_opts)
-map("v", "(", "<esc>`>a)<esc>`<i(<esc>", default_opts)
 map("v", "<", "<gv", default_opts)
 map("v", "<BS>", "<Esc>", default_opts)
 map("v", ">", ">gv", default_opts)
-map("v", "[", "<esc>`>a]<esc>`<i[<esc>", default_opts)
-map("v", "`", "<esc>`>a`<esc>`<i`<esc>", default_opts)
 map("v", "s", ":s//g<Left><Left>", { noremap = true })
-map("v", "{", "<esc>`>a}<esc>`<i{<esc>", default_opts)
-map("v", '"', '<esc>`>a"<esc>`<i"<esc>', default_opts)
 
 ------------- Autocommands -------------
 local group = vim.api.nvim_create_augroup("Custom", { clear = true })
@@ -93,18 +88,29 @@ require("packer").startup(function(use)
 	use({ "wbthomason/packer.nvim" })
 	use({ "tpope/vim-surround" })
 	use({ "tpope/vim-commentary" })
-	use({ "github/copilot.vim" })
 	use({ "jiangmiao/auto-pairs" })
-	use({ "mhartington/formatter.nvim"})
-	use({ "chriskempson/base16-vim"})
-	use({"rlane/pounce.nvim"})
+	use({ "chriskempson/base16-vim" })
+	use({ "rlane/pounce.nvim" })
+	use({ "nvim-telescope/telescope.nvim" })
+	use({ "nvim-lua/plenary.nvim" })
+
+	-- LSP
+	use({ "williamboman/mason.nvim" })
+	use({ "williamboman/nvim-lsp-installer" })
+	use({ "neovim/nvim-lspconfig" })
+	use({ "williamboman/mason-lspconfig.nvim" })
+	use({ "jose-elias-alvarez/null-ls.nvim" })
 	use({
 		"hrsh7th/nvim-cmp",
-		requires = { { "hrsh7th/cmp-buffer" }, { "hrsh7th/cmp-path" } }
+		requires = {
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+		},
 	})
 end)
 
 require("user.cmp")
-require("user.formatter") 
+require("user.lsp")
 vim.api.nvim_set_keymap("n", "f", ":Pounce<CR>", { noremap = true })
-vim.cmd("colorscheme base16-classic-dark") 
+vim.cmd("colorscheme base16-classic-dark")
