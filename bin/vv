@@ -1,4 +1,4 @@
 #!/bin/sh
 
 path="${1:-$DOTS}"
-find "$path" -type d -name .git -prune -o -type f -print | fzf -m | xargs -r "$EDITOR"
+fd --hidden --type f --exclude ".git" . "$path" | fzf -m | xargs -r "$EDITOR"
