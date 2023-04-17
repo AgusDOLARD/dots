@@ -1,8 +1,8 @@
 return {
-	"freddiehaddad/base16-nvim",
+	"savq/melange-nvim",
 	lazy = false,
 	priority = 1000,
 	init = function()
-		vim.cmd("colorscheme base16-classic-dark")
+		vim.cmd("colorscheme melange")
 	end,
 }

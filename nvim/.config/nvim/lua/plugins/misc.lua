@@ -1,6 +1,9 @@
 return {
 	"tpope/vim-surround",
-	"tpope/vim-commentary",
+	{
+		"tpope/vim-commentary",
+		keys = { { "gc", mode = { "n", "v" } } },
+	},
 	{
 		"jiangmiao/auto-pairs",
 		init = function()
@@ -18,5 +21,16 @@ return {
 		keys = {
 			{ "f", "<cmd>Pounce<cr>" },
 		},
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				auto_install = true,
+				highlight = {
+					enable = true,
+				},
+			})
+		end,
 	},
 }
