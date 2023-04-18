@@ -1,0 +1,13 @@
+#!/bin/sh
+
+msgID="27810"
+
+timer() {
+	sleep "${1}m"
+	dunstify "pomodoro" "${2}" -r $msgID
+}
+
+while true; do
+	timer 25 "time to rest"
+	timer 5 "back to work"
+done
