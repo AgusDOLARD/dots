@@ -12,16 +12,23 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 zstyle ':completion:*' menu select
 
 # Plugins
-ZIT_MODULES_PATH=$ZDOTDIR/plugins
 [ -d "/usr/share/fzf/" ] && source /usr/share/fzf/{key-bindings,completion}.zsh
-[ ! -d "${ZIT_MODULES_PATH}/zit" ] && git clone "https://github.com/thiagokokada/zit" "${ZIT_MODULES_PATH}/zit"
-    source "${ZIT_MODULES_PATH}/zit/zit.zsh"
-zit-il "https://github.com/ajeetdsouza/zoxide#main" "zoxide" "zoxide.plugin.zsh"
-zit-il "https://github.com/hcgraf/zsh-sudo" "sudo" "sudo.plugin.zsh"
-zit-il "https://github.com/Freed-Wu/zsh-command-not-found#main" "zsh-command-not-found" "command-not-found.plugin.zsh"
-zit-il "https://github.com/hlissner/zsh-autopair" "autopair" "autopair.zsh"
-zit-il "https://github.com/le0me55i/zsh-extract" "zsh-extract" "extract.plugin.zsh" && unalias x
-zit-il "https://github.com/zsh-users/zsh-autosuggestions" "zsh-autosuggestions" "zsh-autosuggestions.zsh"
-zit-il "https://github.com/zsh-users/zsh-completions" "zsh-completions" "zsh-completions.plugin.zsh"
-zit-il "https://github.com/zsh-users/zsh-syntax-highlighting" "zsh-syntax-highlighting" "zsh-syntax-highlighting.plugin.zsh"
-for p in "$ZIT_MODULES_PATH"/custom/*; do zit-lo "custom" "$(basename $p)"; done
+
+UZ_PATH="$XDG_DATA_HOME/uz"
+[ ! -d "$UZ_PATH" ] && {
+  git clone https://github.com/maxrodrigo/uz.git "$UZ_PATH"
+}
+source "$UZ_PATH/uz.zsh"
+
+zadd ajeetdsouza/zoxide 
+zadd hcgraf/zsh-sudo sudo.plugin.zsh
+zadd Freed-Wu/zsh-command-not-found  command-not-found.plugin.zsh
+zadd hlissner/zsh-autopair
+zadd le0me55i/zsh-extract extract.plugin.zsh && unalias x
+zadd zsh-users/zsh-autosuggestions 
+zadd zsh-users/zsh-completions
+zadd zsh-users/zsh-syntax-highlighting
+
+for p in "$DOTS/zsh/.config/zsh/plugins/custom/"*; do source "$p"; done
+
+# vim: set ft=zsh
