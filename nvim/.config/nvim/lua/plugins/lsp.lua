@@ -23,6 +23,7 @@ return {
 			keys = {
 				{ "<C-.>", vim.lsp.buf.code_action },
 				{ "gh", vim.lsp.buf.hover },
+				{ "gd", vim.lsp.buf.definition },
 				{ "<F2>", vim.lsp.buf.rename },
 			},
 		},

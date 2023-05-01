@@ -1,0 +1,9 @@
+#!/bin/sh
+session="default"
+
+if ! tmux has-session -t $session; then
+	tmux new-session -s $session
+fi
+
+# Attach to created session
+tmux attach-session -t $session

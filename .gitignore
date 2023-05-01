@@ -4,3 +4,4 @@
 !/zsh/.config/zsh/plugins/custom/
 /nvim/.config/nvim/lazy-lock.json
 /nvim/.config/nvim/lua/.luarc.json
+/tmux/.config/tmux/plugins/

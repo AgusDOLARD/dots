@@ -15,4 +15,10 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias yolo='gp $(curl -s http://whatthecommit.com/index.txt)'
 alias p="sudo pacman"
 
-md(){ mkdir -p -- "$@" && cd -- "$@" }
+md() {
+	mkdir -p -- "$@" && cd -- "$@" || exit
+}
+
+la() {
+	cd "$(llama "$@")" || exit
+}

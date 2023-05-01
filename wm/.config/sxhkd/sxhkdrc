@@ -10,9 +10,13 @@ super + shift + {q,r}
 super + q
 	bspc node -c
 
-# set the window state
+# toggle fullscreen
 super + f
 	bspc node -t tiled || bspc node -t fullscreen
+
+# toggle floating
+super + space
+	bspc node -t tiled || bspc node -t floating
 
 # focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
@@ -56,7 +60,7 @@ super + Print
     colorpicker --short --one-shot --preview | xsel -b
 
 super + {_,shift} + Return
-	$TERMINAL {_,-e $SCRIPT_DIR/tmuxsession}
+	$TERMINAL {-e $SCRIPT_DIR/tmuxdefault,_}
 
 super + d
 	dmenu_run

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+projs="$(tmuxinator list | tail -n +2 | xargs -n 1)"
+
+sel="$(echo "$projs" | fzf)"
+
+tmuxinator start "$sel"

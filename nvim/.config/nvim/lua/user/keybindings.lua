@@ -7,8 +7,6 @@ map("c", "<M-k>", "<Up>", normap)
 map("i", "jj", "<Esc>")
 
 map("n", "<BS>", "<cmd>nohlsearch<CR>")
-map("n", "<S-j>", "<cmd>bp<CR>")
-map("n", "<S-k>", "<cmd>bn<CR>")
 map("n", "<S-u>", "<C-r>")
 map("n", "<leader>e", "<cmd>e $MYVIMRC<CR>")
 map("n", "<leader>q", "<cmd>lua require('user.utils').close_buffer()<cr>")

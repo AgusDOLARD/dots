@@ -11,12 +11,6 @@ return {
 		end,
 	},
 	{
-		"bobrown101/fff.nvim",
-		keys = {
-			{ "<leader>p", '<cmd>lua require("fff").start()<cr>' },
-		},
-	},
-	{
 		"rlane/pounce.nvim",
 		keys = {
 			{ "f", "<cmd>Pounce<cr>" },
