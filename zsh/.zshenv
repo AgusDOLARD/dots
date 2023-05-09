@@ -31,10 +31,11 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 
 # ZSH
-export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+export HISTFILE="$XDG_CACHE_HOME/history"
+export ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
+export ZVM_INIT_MODE=sourcing
 export SAVEHIST=10000
 export HISTSIZE=10000
-export ZSHPLUGS="$XDG_CONFIG_HOME/zsh/plugins"
 export _Z_DATA="$XDG_CACHE_HOME/z"
 export LS_COLORS="no=00;37:fi=00:di=00;33:ln=04;36:pi=40;33:so=01;35:bd=40;33;01:"
 export ZDOTDIR="$HOME/.config/zsh"
