@@ -27,7 +27,7 @@ export PYLINTHOME="$XDG_CACHE_HOME/pylint"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export XINITRC="$DOTS/wm/.config/X11/xinitrc"
 export STACK_ROOT="$XDG_DATA_HOME/stack"
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+# export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 
 # ZSH
@@ -65,5 +65,5 @@ export NNN_PLUG='s:suedit;z:autojump;d:dragdrop'
 export CM_SELECTIONS="primary clipboard"
 export CM_MAX_CLIPS=20
 
-path=("$DOTS/bin"  "$NPM_CONFIG_PREFIX/bin" "$HOME/.local/bin" "$GOPATH/bin" "${path[@]}")
+path=("$DOTS/bin" "$NPM_CONFIG_PREFIX/bin" "$HOME/.local/bin" "$GOPATH/bin" "${path[@]}")
 export PATH
