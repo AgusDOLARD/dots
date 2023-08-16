@@ -40,18 +40,18 @@ super + shift + control + {j,k}
 
 # Toggle volume sound
 super + shift + alt + space
-	pamixer  --toggle-mute | $SCRIPT_DIR/volnot
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle | $SCRIPT_DIR/volnot
 
 # Volume controler
 XF86Audio{Lower,Raise}Volume
-	pamixer -{d,i} 5 | $SCRIPT_DIR/volnot
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%{-,+} --limit 1 | $SCRIPT_DIR/volnot
 
 # Volume controler
 super + shift + alt + {j,k}
-	pamixer -{d,i} 5 | $SCRIPT_DIR/volnot
+	wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%{-,+} --limit 1 | $SCRIPT_DIR/volnot
 
 XF86AudioMute
-	pamixer -t | $SCRIPT_DIR/volnot
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle | $SCRIPT_DIR/volnot
 
 Print
 	$SCRIPT_DIR/dmenuscrot

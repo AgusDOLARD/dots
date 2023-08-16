@@ -9,5 +9,6 @@ xinput set-prop "$touchpadID" "libinput Natural Scrolling Enabled" 1 &
 xinput set-prop "$touchpadID" "libinput Tapping Enabled" 1 &
 dunst &
 clipmenud &
+/usr/libexec/pipewire-launcher &
 sxhkd &
-exec bspwm
+exec dbus-launch --exit-with-session bspwm
