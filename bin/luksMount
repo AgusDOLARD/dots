@@ -1,0 +1,14 @@
+#!/bin/sh
+
+DRIVE=$(gum choose $(lsblk -rpno "name"))
+
+NAME=$(gum input --placeholder "Name your drive")
+MOUNTPATH="/mnt/${NAME}"
+
+cryptsetup open "$DRIVE" "$NAME"
+
+if [ ! -d "$MOUNTPATH" ]; then
+	mkdir "$MOUNTPATH"
+fi
+
+mount "/dev/mapper/$NAME" "$MOUNTPATH"
