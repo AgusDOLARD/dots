@@ -1,7 +1,17 @@
 #! /bin/sh
 
+setupSecondMonitor() {
+	MONITOR="$1"
+	RES="${2:-1920x1080}"
+	MAIN="${3:-eDP1}"
+	if xrandr -q | grep "$MONITOR connected"; then
+		bspc monitor "$MONITOR" -d 6 7 8 9 0
+		xrandr --output "$MONITOR" --mode "$RES" --right-of "$MAIN"
+	fi
+}
+
 bspc monitor -d 1 2 3 4 5
-bspc monitor HDMI-2 -d 6 7 8 9 0
+setupSecondMonitor HDMI2
 
 bspc config border_width 2
 bspc config window_gap 15

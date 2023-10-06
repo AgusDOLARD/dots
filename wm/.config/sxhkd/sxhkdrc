@@ -67,7 +67,7 @@ super + d
 
 # Clipboard history
 super + c
-	clipmenu 
+	clipstory | dmenu | xsel -ib
 
 # Close single dunst notification
 control + space
