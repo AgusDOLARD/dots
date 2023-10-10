@@ -5,6 +5,11 @@ local plugins = {
     opts = {},
   },
   {
+    'abecodes/tabout.nvim',
+    event = "InsertEnter",
+    opts = {},
+  },
+  {
     "folke/which-key.nvim",
     enabled = false,
   },

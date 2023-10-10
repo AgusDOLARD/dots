@@ -29,6 +29,12 @@ M.customMappings = {
       end,
       "LSP hover",
     },
+    ["<M-<>"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "LSP code action",
+    },
 
   }
 }
