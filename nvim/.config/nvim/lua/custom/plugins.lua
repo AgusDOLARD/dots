@@ -7,7 +7,11 @@ local plugins = {
   {
     'abecodes/tabout.nvim',
     event = "InsertEnter",
-    opts = {},
+    opts = {
+    tabkey = '<M-n>', 
+    backwards_tabkey = '<M-b>', 
+    enable_backwards = true, 
+    },
   },
   {
     "folke/which-key.nvim",
