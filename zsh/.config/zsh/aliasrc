@@ -17,9 +17,9 @@ alias yolo='gp $(curl -s http://whatthecommit.com/index.txt)'
 alias p="sudo pacman"
 
 md() {
-	mkdir -p -- "$@" && cd -- "$@" || exit
+    mkdir -p -- "$@" && cd -- "$@" || exit
 }
 
 la() {
-	cd "$(llama "$@")" || exit
+    cd "$(llama "$@")" || exit
 }

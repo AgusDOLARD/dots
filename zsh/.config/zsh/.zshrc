@@ -27,6 +27,7 @@ if (( $+commands[doas] )) then
 else
     zadd hcgraf/zsh-sudo sudo.plugin.zsh
 fi
+zadd linnnus/autovenv
 zadd ajeetdsouza/zoxide
 zadd hlissner/zsh-autopair
 zadd le0me55i/zsh-extract extract.plugin.zsh && unalias x
