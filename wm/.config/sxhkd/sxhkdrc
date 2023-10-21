@@ -59,8 +59,8 @@ Print
 super + Print
     colorpicker --short --one-shot --preview | xsel -b
 
-super + {_,shift} + Return
-	$TERMINAL {-e $SCRIPT_DIR/tmuxdefault,_}
+super + Return
+	$TERMINAL
 
 super + d
 	dmenu_run

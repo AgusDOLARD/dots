@@ -5,11 +5,12 @@ g.mapleader = " "
 opt.background = "dark"
 opt.clipboard = "unnamedplus"
 opt.expandtab = true
+opt.fillchars = { eob = " " }
+opt.hlsearch = false
 opt.ignorecase = true
 opt.laststatus = 0
 opt.linebreak = true
 opt.path = { "**", ".", "," }
-opt.hlsearch = false
 opt.ruler = false
 opt.scrolloff = 5
 opt.shiftwidth = 2

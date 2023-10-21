@@ -1,8 +1,8 @@
 return {
-	"savq/melange-nvim",
+	"ellisonleao/gruvbox.nvim",
 	lazy = false,
 	priority = 1000,
 	init = function()
-		vim.cmd("colorscheme melange")
+		vim.cmd.colorscheme("gruvbox")
 	end,
 }

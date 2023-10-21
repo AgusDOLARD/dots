@@ -8,7 +8,7 @@ alias l="ls -alh"
 alias ll='ls -a'
 alias ls='ls --color=auto'
 alias sdf='setxkbmap us -option caps:backspace && xset r 66'
-alias src='source $XDG_CONFIG_HOME/zsh/.zshrc && source /etc/zsh/zshenv'
+alias src='source $XDG_CONFIG_HOME/zsh/.zshrc && source $HOME/.zshenv'
 alias sudo='sudo '
 alias doas='doas '
 alias vim='$EDITOR'

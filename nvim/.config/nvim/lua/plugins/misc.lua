@@ -16,5 +16,4 @@ return {
 			{ "f", "<cmd>Pounce<cr>" },
 		},
 	},
-	
 }
