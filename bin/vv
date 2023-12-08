@@ -1,4 +1,7 @@
 #!/bin/sh
 
 path="${1:-$DOTS}"
-fd --hidden --type f --exclude ".git" . "$path" | fzf -m | xargs -r "$EDITOR"
+
+filesFound=$(fd --hidden --type f --exclude ".git" . "$path")
+files=$([ "$path" != "$DOTS" ] && echo "$filesFound" | cut -b3- || echo "$filesFound")
+echo "$files" | fzf -m | xargs -r "$EDITOR"
