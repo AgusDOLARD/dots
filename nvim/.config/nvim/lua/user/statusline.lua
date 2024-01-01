@@ -1,6 +1,5 @@
 vim.opt.laststatus = 3
 
-
 local function mode()
     local current_mode = vim.api.nvim_get_mode().mode
     return string.format(" %s ", current_mode):upper()
