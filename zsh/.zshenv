@@ -30,6 +30,7 @@ export STACK_ROOT="$XDG_DATA_HOME/stack"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 
+
 # ZSH
 export HISTFILE="$XDG_CACHE_HOME/history"
 export ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
@@ -49,9 +50,8 @@ export LESSHISTFILE=-
 export TERMINAL="xterm"
 export BROWSER="firefox"
 export IMAGE="feh"
-export PAGER="nvim +Man!"
+export PAGER="less"
 export GIT_PAGER="less"
-export TERM="xterm-256color"
 
 export SCRIPT_DIR="$DOTS/bin/scripts"
 

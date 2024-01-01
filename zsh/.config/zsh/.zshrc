@@ -16,11 +16,17 @@ local resetColor="%{$reset_color%}"
 local dir="%{$fg_bold[white]%}%c$resetColor$resetColor"
 PROMPT='%{$fg_bold[white]%}$dir '
 
+# Fzf
+fzfKeybindingsFile=/usr/share/fzf/key-bindings.zsh
+[ -f "${fzfKeybindingsFile}" ] && source "${fzfKeybindingsFile}"
+bindkey -s "^[p" 'vv .^M'
+
 # Plugins
 UZ_PATH="$XDG_DATA_HOME/uz"
 [ ! -d "$UZ_PATH" ] && git clone https://github.com/maxrodrigo/uz.git "$UZ_PATH"
 source "$UZ_PATH/uz.zsh"
 source "$ZDOTDIR/aliasrc"
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
 if (( $+commands[doas] )) then
     zadd Senderman/doas-zsh-plugin doas.plugin.zsh

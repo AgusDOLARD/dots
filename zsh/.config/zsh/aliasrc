@@ -1,25 +1,18 @@
 #!/bin/sh
 alias byeOrphans='sudo pacman -Rns $(pacman -Qtdq)'
-alias vvd='cd "${DOTS}"'
 alias cya="rm -rf"
+alias doas='doas '
 alias dps="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Size}}\t{{.Status}}'"
 alias gss="git status"
 alias l="ls -alh"
+alias lk="walk --icons"
 alias ll='ls -a'
 alias ls='ls --color=auto'
+alias p="sudo pacman"
 alias sdf='setxkbmap us -option caps:backspace && xset r 66'
 alias src='source $XDG_CONFIG_HOME/zsh/.zshrc && source $HOME/.zshenv'
 alias sudo='sudo '
-alias doas='doas '
 alias vim='$EDITOR'
+alias vvd='cd "${DOTS}"'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias yolo='gp $(curl -s http://whatthecommit.com/index.txt)'
-alias p="sudo pacman"
-
-md() {
-    mkdir -p -- "$@" && cd -- "$@" || exit
-}
-
-la() {
-    cd "$(llama "$@")" || exit
-}
