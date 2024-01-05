@@ -1,9 +1,9 @@
 return {
     "AgusDOLARD/backout.nvim",
-    dir = "/home/user/projs/backout.nvim/",
+    dir = vim.env.HOME .. "/projs/backout.nvim/",
     opts = {},
     keys = {
-        { "<M-b>", "<cmd>lua require('backout').back()<cr>", mode = "i" },
-        { "<M-n>", "<cmd>lua require('backout').out()<cr>", mode = "i" },
+        { "<M-b>", function() require("backout").back() end, mode = "i" },
+        { "<M-n>", function() require("backout").out() end, mode = "i" },
     },
 }

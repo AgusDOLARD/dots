@@ -14,10 +14,10 @@ return {
         },
     },
     keys = {
-        { "<M-P>", "<cmd>lua require('fzf-lua').files()<cr>" },
-        { "<M-p>", "<cmd>lua require('fzf-lua').git_files()<cr>" },
-        { "<leader>fs", "<cmd>lua require('fzf-lua').git_status()<cr>" },
-        { "<leader>fw", "<cmd>lua require('fzf-lua').grep_cword()<cr>" },
-        { "<leader>ft", "<cmd>lua require('fzf-lua').help_tags()<cr>" },
+        { "<M-P>", function() require("fzf-lua").files() end },
+        { "<M-p>", function() require("fzf-lua").git_files() end },
+        { "<leader>fs", function() require("fzf-lua").git_status() end },
+        { "<leader>fw", function() require("fzf-lua").grep_cword() end },
+        { "<leader>ft", function() require("fzf-lua").help_tags() end },
     },
 }

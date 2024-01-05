@@ -7,7 +7,7 @@ g.mapleader = " " -- Set space as the map leader
 opt.clipboard = "unnamedplus" -- Use system clipboard
 opt.expandtab = true -- Use spaces instead of tabs
 opt.fillchars = { eob = " " } -- Fill character at the end of the line
-opt.hlsearch = false -- Do not highlight search matches as you type
+-- opt.hlsearch = false -- Do not highlight search matches as you type
 opt.ignorecase = true -- Ignore case when searching
 opt.linebreak = true -- Break lines at word boundaries
 opt.path = { "**" } -- Set the search path for files
@@ -22,6 +22,8 @@ opt.smartindent = true -- Enable smart indenting
 opt.swapfile = false -- Do not use swapfile
 opt.tabstop = 4 -- Number of spaces that a <Tab> in the file counts for
 opt.termguicolors = true -- Enable true colors in the terminal
+opt.number = true
+opt.relativenumber = true
 
 -- Undo and History
 opt.undodir = vim.env.XDG_CACHE_HOME .. "/nvim/undo" -- Set the directory for undo files

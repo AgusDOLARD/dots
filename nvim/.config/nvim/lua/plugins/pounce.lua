@@ -1,6 +1,4 @@
 return {
     "rlane/pounce.nvim",
-    keys = {
-        { "f", "<cmd>lua require('pounce').pounce()<cr>" },
-    },
+    keys = { { "f", function() require("pounce").pounce() end } },
 }

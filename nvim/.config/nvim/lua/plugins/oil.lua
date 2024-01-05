@@ -1,6 +1,9 @@
 return {
     "stevearc/oil.nvim",
-    keys = { { "<M-o>", "<cmd>lua require('oil').open_float('.')<cr>" } },
+    keys = { {
+        "<M-o>",
+        function() require("oil").open_float(".") end,
+    } },
     opts = {
         default_file_explorer = true,
         keymaps = {
