@@ -1,0 +1,19 @@
+name: Format Nvim Lua Files
+
+on: push
+
+defaults:
+  run:
+    working-directory: nvim/
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: JohnnyMorganz/stylua-action@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: latest
+          args: -f .stylua.toml -g ./**/*.lua
