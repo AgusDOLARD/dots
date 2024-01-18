@@ -65,12 +65,5 @@ export NNN_PLUG='s:suedit;z:autojump;d:dragdrop'
 export CM_SELECTIONS="primary clipboard"
 export CM_MAX_CLIPS=20
 
-# tmux t plugin
-TPLUG="$HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin"
-if [[ $TPLUG ]]; then
-    export T_SESSION_USE_GIT_ROOT="true"
-    export PATH="$TPLUG:$PATH"
-fi
-
 path=("$DOTS/bin" "$NPM_CONFIG_PREFIX/bin" "$HOME/.local/bin" "$GOPATH/bin" "${path[@]}")
 export PATH
