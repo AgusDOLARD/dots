@@ -25,5 +25,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
         vim.keymap.set({ "n", "v" }, "g.", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
+        vim.keymap.set("i", "<M-h>", vim.lsp.buf.signature_help, opts)
     end,
 })

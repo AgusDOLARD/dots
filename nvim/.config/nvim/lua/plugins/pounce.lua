@@ -1,4 +1,4 @@
 return {
     "rlane/pounce.nvim",
-    keys = { { "f", function() require("pounce").pounce() end } },
+    keys = { { "<leader>p", function() require("pounce").pounce() end } },
 }

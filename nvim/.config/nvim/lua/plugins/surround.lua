@@ -6,6 +6,6 @@ return {
         { "ys", mode = "n" },
         { "ds", mode = "n" },
         { "cs", mode = "n" },
-        { "S", mode = "v" },
+        { "S",  mode = "v" },
     },
 }

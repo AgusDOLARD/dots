@@ -1,9 +1,11 @@
 return {
     "stevearc/oil.nvim",
-    keys = { {
-        "<M-o>",
-        function() require("oil").open_float(".") end,
-    } },
+    keys = {
+        {
+            "<M-o>",
+            function() require("oil").open_float(".") end,
+        },
+    },
     opts = {
         default_file_explorer = true,
         keymaps = {

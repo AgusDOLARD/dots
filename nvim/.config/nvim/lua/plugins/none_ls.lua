@@ -1,16 +1,19 @@
 return {
-    "nvimtools/none-ls.nvim",
-    config = function()
-        local null_ls = require("null-ls")
-        local f = null_ls.builtins.formatting
-        local d = null_ls.builtins.diagnostics
-        null_ls.setup({
-            sources = {
-                f.stylua,
-                f.goimports,
-                f.prettierd,
-                d.eslint_d,
-            },
-        })
-    end,
+    "jay-babu/mason-null-ls.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+        "williamboman/mason.nvim",
+        "nvimtools/none-ls.nvim",
+        "nvim-lua/plenary.nvim",
+    },
+    opts = {
+        ensure_installed = {
+            "stylua",
+            "goimports",
+            "gomodifytags",
+            "prettierd",
+        },
+        automatic_setup = true,
+        handlers = {},
+    },
 }

@@ -29,7 +29,12 @@ local kind_icons = {
 local has_words_before = function()
     unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    return col ~= 0
+        and vim.api
+        .nvim_buf_get_lines(0, line - 1, line, true)[1]
+        :sub(col, col)
+        :match("%s")
+        == nil
 end
 
 local border_opts = {
@@ -56,7 +61,11 @@ return {
             },
             formatting = {
                 format = function(_, vim_item)
-                    vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+                    vim_item.kind = string.format(
+                        "%s %s",
+                        kind_icons[vim_item.kind],
+                        vim_item.kind
+                    )
                     return vim_item
                 end,
             },
@@ -67,7 +76,7 @@ return {
             sources = {
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
-                { name = "buffer", keyword_length = 4 },
+                { name = "buffer",  keyword_length = 4 },
                 { name = "path" },
             },
             mapping = {
@@ -91,7 +100,10 @@ return {
                         fallback()
                     end
                 end, { "i", "s" }),
-                ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+                ["<C-Space>"] = cmp.mapping(
+                    cmp.mapping.complete(),
+                    { "i", "c" }
+                ),
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
             },
         })
