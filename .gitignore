@@ -5,3 +5,12 @@
 /nvim/.config/nvim/lazy-lock.json
 /nvim/.config/nvim/lua/.luarc.json
 /tmux/.config/tmux/plugins/
+
+/fish/.config/fish/completions/
+/fish/.config/fish/functions/
+/fish/.config/fish/fish_variables
+/fish/.config/fish/conf.d/*
+!fish/.config/fish/conf.d/env.fish
+!fish/.config/fish/conf.d/path.fish
+!fish/.config/fish/conf.d/alias.fish
+!fish/.config/fish/conf.d/bindings.fish
