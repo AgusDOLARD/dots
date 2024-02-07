@@ -1,13 +1,13 @@
-alias cya="rm -rf"
-alias dps="docker ps --format='table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Size}}\t{{.Status}}'"
+abbr --add cya "rm -rf"
+abbr --add gco "git checkout -b"
+abbr --add gss "git status"
+abbr --add l "ls -alh"
+abbr --add lk "walk --icons"
+abbr --add o 'sesh connect $(sesh list | fzf)'
+abbr --add vvd 'cd {$DOTS}'
+
 alias e='$EDITOR'
-alias gco="git checkout"
-alias gss="git status"
-alias l="ls -alh"
-alias lk="walk --icons"
-alias ll='ls -a'
-alias o='sesh connect $(sesh list | fzf)'
-alias vvd='cd $DOTS'
+alias dps="docker ps --format='table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Size}}\t{{.Status}}'"
 
 function md;
     mkdir -p $argv
