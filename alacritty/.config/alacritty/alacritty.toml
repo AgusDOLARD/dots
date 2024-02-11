@@ -1,0 +1,24 @@
+import = [
+ "~/.config/alacritty/base16-dark.toml",
+]
+
+[shell]
+program = "/usr/bin/fish"
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+{ key = "V", mods = "Alt", action = "Paste" },
+{ key = "C", mods = "Alt", action = "Copy" },
+]
+
+[window]
+dynamic_padding = true
+
+[font]
+size = 20
