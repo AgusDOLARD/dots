@@ -1,9 +1,12 @@
 #!/bin/sh
 
-running="$(docker ps --format='table {{.ID}}\t{{.Names}}\t{{.Image}}' | tail -n +2)"
+running="$(docker ps --format='table {{.ID}}\t{{.Names}}\t{{.Image}}')"
 
-[ -z "$running" ] && echo "no containers running" && exit 0
+if [ "$(echo "$running" | wc -l)" -le 1 ]; then
+	echo "no containers running"
+	exit 0
+fi
 
-pick="$(echo "$running" | fzf | awk '{print $1}')"
+pick="$(echo "$running" | fzf --header-lines=1 | awk '{print $1}')"
 
 [ -n "$pick" ] && docker kill "$pick"
