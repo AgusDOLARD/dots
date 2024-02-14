@@ -7,6 +7,6 @@ if [ "$(echo "$running" | wc -l)" -le 1 ]; then
 	exit 0
 fi
 
-pick="$(echo "$running" | fzf --header-lines=1 | awk '{print $1}')"
+pick="$(echo "$running" | fzf -m --header-lines=1 | awk '{print $1}')"
 
-[ -n "$pick" ] && docker kill "$pick"
+[ -n "$pick" ] && echo "$pick" | xargs docker kill
