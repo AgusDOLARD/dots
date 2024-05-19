@@ -1,11 +1,17 @@
 return {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         local actions = require("telescope.actions")
         require("telescope").setup({
             defaults = {
+                sorting_strategy = "ascending",
+                layout_strategy = "center",
+                border = false,
+                layout_config = {
+                    anchor = "N",
+                    width = 99,
+                },
                 mappings = {
                     i = {
                         ["<M-p>"] = actions.close,
