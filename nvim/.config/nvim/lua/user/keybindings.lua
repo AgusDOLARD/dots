@@ -7,7 +7,7 @@ map("c", "<M-k>", "<Up>", opts)
 
 map("i", "jj", "<Esc>", silent)
 
-map("n", "<C-H>", "<cmd>nohlsearch<CR>", silent)
+map("n", "<BS>", "<cmd>nohlsearch<CR>", silent)
 map("n", "<S-u>", "<C-r>", silent)
 map("n", "J", "<cmd>bp<cr>", silent)
 map("n", "K", "<cmd>bn<cr>", silent)
