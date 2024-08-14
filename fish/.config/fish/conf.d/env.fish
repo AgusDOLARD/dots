@@ -27,6 +27,9 @@ set -gx XINITRC "$DOTS/wm/.config/X11/xinitrc"
 set -gx STACK_ROOT "$XDG_DATA_HOME/stack"
 set -gx XAUTHORITY "$XDG_RUNTIME_DIR/Xauthority"
 set -gx SQLITE_HISTORY "$XDG_DATA_HOME/sqlite_history"
+set -gx PASSWORD_STORE_DIR "$XDG_DATA_HOME/pass"
+set -gx GNUPGHOME "$XDG_DATA_HOME/gnupg"
+
 
 # Apps
 set -gx EDITOR "nvim"
@@ -35,9 +38,14 @@ set -gx MAILCHECK 0
 set -gx READER "zathura"
 set -gx LESSHISTFILE -
 set -gx TERMINAL "xterm"
-set -gx BROWSER "firefox"
+set -gx BROWSER "librewolf"
 set -gx IMAGE "feh"
 set -gx PAGER "less"
 set -gx GIT_PAGER "less"
+set -gx TERM "xterm-256color"
+
+set -gx NB_DIR "$XDG_DATA_HOME/nb"
+
+set -gx FLYCTL_INSTALL "/home/agus/.local/share/fly"
 
 set -gx SCRIPT_DIR "$DOTS/bin/scripts"

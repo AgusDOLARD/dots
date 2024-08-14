@@ -1,6 +1,6 @@
 abbr --add cya "rm -rf"
 abbr --add gco "git checkout"
-abbr --add gss "git status"
+abbr --add gss "nvim -c 'tab Git'"
 abbr --add l "ls -alh"
 abbr --add lk "walk --icons"
 abbr --add o 'sesh connect $(sesh list | fzf)'
