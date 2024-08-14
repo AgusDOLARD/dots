@@ -12,6 +12,8 @@ map("n", "<S-u>", "<C-r>", silent)
 map("n", "J", "<cmd>bp<cr>", silent)
 map("n", "K", "<cmd>bn<cr>", silent)
 map("n", "<leader>e", "<cmd>e $MYVIMRC<CR>", silent)
+map("n", "<leader>lr", "<cmd>LspRestart<CR>", silent)
+map("n", "<leader>cm", ":!", opts)
 map(
     "n",
     "<leader>q",
