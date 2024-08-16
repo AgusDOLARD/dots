@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# go to repo root
+root=$(git rev-parse --show-toplevel)
+cd "$root"
+
+untracked=$(git ls-files --others --exclude-standard)
+unstaged=$(git diff --name-only)
+
+chosen=$(printf "%s\n%s" "$untracked" "$unstaged" | gum choose --no-limit --header "Stage file")
+
+for file in $chosen; do
+    git add "$file"
+done
+
+cd - > /dev/null
