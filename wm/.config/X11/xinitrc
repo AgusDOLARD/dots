@@ -8,7 +8,7 @@ xinput set-prop "$touchpadID" "libinput Accel Speed" 0.3 &
 xinput set-prop "$touchpadID" "libinput Natural Scrolling Enabled" 1 &
 xinput set-prop "$touchpadID" "libinput Tapping Enabled" 1 &
 dunst &
-clipstoryd &
+clipstory deamon &
 /usr/libexec/pipewire-launcher &
 sxhkd -c ${DOTS}/wm/.config/sxhkd/sxhkdrc ${DOTS}/wm/.config/sxhkd/sxhkdrc.bspwm &
 exec dbus-launch --exit-with-session bspwm
