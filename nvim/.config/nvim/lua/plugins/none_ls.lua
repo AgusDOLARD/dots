@@ -11,7 +11,6 @@ return {
             "stylua",
             "goimports",
             "gomodifytags",
-            "prettierd",
         },
         automatic_setup = true,
         handlers = {},
