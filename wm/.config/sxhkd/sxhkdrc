@@ -32,7 +32,7 @@ super + Print
     colorpicker --short --one-shot --preview | xsel -b
 
 super + Return
-	$TERMINAL
+	alacritty
 
 super + d
 	dmenu_run
@@ -48,6 +48,10 @@ control + space
 # See previous closed dunst notification
 control shift + space
 	dunstctl history-pop
+
+# Lock screen
+ctrl + alt + l
+	slock
 
 # Reload SXHKD
 super + Escape

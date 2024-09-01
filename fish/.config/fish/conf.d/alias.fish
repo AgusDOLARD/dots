@@ -1,3 +1,4 @@
+abbr --add p "sudo pacman"
 abbr --add cya "rm -rf"
 abbr --add gco "git checkout"
 abbr --add gss "git status"

@@ -13,12 +13,12 @@ hide_when_typing = true
 
 [keyboard]
 bindings = [
-{ key = "V", mods = "Alt", action = "Paste" },
-{ key = "C", mods = "Alt", action = "Copy" },
+    { key = "V", mods = "Alt", action = "Paste" },
+    { key = "C", mods = "Alt", action = "Copy" },
 ]
 
 [window]
 dynamic_padding = true
 
 [font]
-size = 20
+size = 16
