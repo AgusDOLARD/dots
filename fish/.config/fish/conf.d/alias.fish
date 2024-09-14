@@ -1,3 +1,4 @@
+abbr --add byeOrphans 'sudo pacman -Rns $(pacman -Qtdq)'
 abbr --add p "sudo pacman"
 abbr --add cya "rm -rf"
 abbr --add gco "git checkout"
