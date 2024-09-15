@@ -5,5 +5,6 @@ if status is-interactive
     bind -M insert \ep "vv ."
     bind -M insert \eo "nvim -c 'Oil'"
     bind -M insert \ey 'commandline -a " | xclip -in -sel clip"'
+    bind -M insert \eh "cliphist list | fzf --no-sort | cliphist decode | wl-copy"
     bind -M insert \el accept-autosuggestion
 end
