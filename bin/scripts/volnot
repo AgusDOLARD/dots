@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 msgID="2345"
-audio="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/Volume:\s//g')"
-dunstify "  $audio" -t 800 -r $msgID
+vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')"
+muted=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}')
+
+dunstify "volume: $vol% $muted" -t 800 -r $msgID
